@@ -6,11 +6,86 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"> </script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" rel="stylesheet"/>
   <link href="css/custom.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+
+  <style>
+a
+{
+  color: #d33682;  
+}
+
+h1
+{
+  color: #586e75;
+  font-family: 'EB Garamond', serif;
+  font-variant: small-caps;
+}
+
+h3
+{
+  color: #586e75;
+  font-family: 'EB Garamond', serif;
+  padding-bottom: 15px;
+}
+
+h3 span
+{
+  font-variant: small-caps;
+}
+
+h3 i
+{
+  padding-right: 12px;
+}
+
+p
+{
+  font-family: 'EB Garamond', serif;
+  font-size: 15pt;
+  line-height: 1.4;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+
+.divider-thin-thick
+{
+  text-align:center;
+  width:90%;
+  max-width:700px;
+  margin:15px auto 35px auto;
+  border-top:1px solid #EEEEEE;
+  border-bottom:2px solid #EEEEEE;
+  height:5px;
+  clear:both
+}
+
+.mytext
+{
+  display: inline-block;
+  max-width: 700px;
+  text-align: left;
+  font-family: 'EB Garamond', serif;
+}
+
+.myimg
+{
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  font-family: 'EB Garamond', serif;
+}
+
+  </style>
+
  </head>
  <body>
   <nav class="navbar navbar-default navbar-darkbg-dark navbar-fixed-top">
    <div class="container">
     <div class="navbar-header">
+     <!-- PUT YOUR SHORT TITLE HERE (should match other pages) -->
      <a class="navbar-brand" href="index.html">WorldView</a>
     </div>
     <div class="navbar-collapse collapse" id="navbar">
@@ -25,11 +100,6 @@
       </li>
      </ul>
      <ul class="nav navbar-nav">
-      <li class="nav-item" id="tag-topics">
-       <a class="nav-link" href="topics.html">Topics</a>
-      </li>
-     </ul>
-     <ul class="nav navbar-nav">
       <li class="nav-item" id="tag-viz">
        <a class="nav-link" href="viz.html">Viz</a>
       </li>
@@ -37,18 +107,80 @@
     </div>
    </div>
   </nav>
-  <div class="container" style="padding-top: 30px;">
-   <div class="row">
-    <div class="col-lg-4">
-     <img src="earth.gif" style="max-width: 300px"/>
+
+  <div style="text-align: center; background: #f1f1f1">
+  <div style="display: inline-block; padding-top: 90px; padding-bottom: 90px; background: white; width: 900px">
+
+    <!-- PUT YOUR LONG TITLE AND NAME HERE -->
+    <div style="max-width: 600px; display: inline-block;">
+        <img src="earth.gif">
+      <h1>WorldView: Exploring the countries of the world through Wikipedia!</h1>
+      <h3><i>by</i> <span>Stephen Owen</span></h3>
     </div>
-    <div class="col-lg-8" style="font-size: 16px; max-width:600px">
-     <h1>Welcome to WorldView!</h1>
-     <p>WorldView is an interactive corpus of data from the Wikipedia pages of all countries on this wet rock we call earth.</p>
-     <p>Click around and have some fun!</p>
-     <p/>
+
+    <div class="divider-thin-thick">&nbsp;</div>
+
+    <!-- example of a text box; include as many paragraphs as needed -->
+    <div class="mytext">
+      <p>
+Even from a young age, I’ve always had a great interest in maps and geography. I was completely content on long car rides to sit quietly and look at the atlas my family kept in the car (naturally this was before the rise of cell phone navigation, so having an atlas actually made sense). Luckily, having an interest in data analytics compliments a fascination for maps very well, as there are many applicable projects that can arise by combining those two interests.
+      </p>
+      <p>
+Originally, when deciding on what corpus to use for this project I was thinking of using the Wikipedia pages for all 50 states. I thought this would be an interesting corpus because I find the concept of little nuanced differences between states really interesting. Particularly, I found things like the differences in state flower, state bird, state tree (also, evidently there’s such thing as a state beverage for some reason), etc. very interesting. Upon first analysis, there were some interesting bits of information, such as a correlation between population and number of languages the page was available to be read in.
+      </p>
+        <p>
+           Naturally when doing any sort of in-depth analysis of a corpus of data, finding the answer to one question immediately brings up plethora of other potential questions. This was especially the case for me with questions regarding language. As I started looking deeper into language correlations, I thought of something that could potentially more interesting results. English is the only official language of the United States, so it would stand to reason that the language variation between states isn’t that large. However, I thought it would be interesting to see how large the language disparity was between other countries in the world.  
+        </p>
+        <p>
+            I figured using the Wikipedia pages of all countries in the world would provide a much richer and more intriguing corpus of data because of the inherent cultural differences between each country. While, yes, there are cultural differences from state to state, it would stand to reason that the cultural (and language) differences from country to country are much larger. So, with all of that out of the way, I had decided on countries as my final corpus of choice. 
+        </p>
+        <p>
+            Over the course of this semester, the wikitext python script has provided a lot of really useful tools for making text analysis a much more streamlined process. With that in hand, I created the text-explorer page for the list of countries. As to be expected, this created the home page, document page, cluster page, and visual page. The home page contains a quick introduction and a nice gif of a spinning globe. The document page contains a nice grid layout displaying the first picture, some preliminary statistics, the top words, and the most related countries. I’ll go more in depth on this in a bit. The cluster page lists 7 clusters and where each country fits in to each cluster (this, again, will be discussed later). Lastly, the visualization page contains a preliminary graph.
+        </p>
+        <p>
+            The document page is the most informatically verbose. As such, I will spend focus on this page the most. It contains the most interesting bits of data all in one concise place. As I mentioned earlier, for every listed country in the corpus, it contains the first picture found on the Wikipedia page. Interestingly enough, the first picture on the Wikipedia page for each country is a picture depicting the country in question (highlighted) and the surrounding area, either on a globe or smaller map. The vast majority of the pages follow a standard 3-Dimensional globe picture format with the country in question highlighted in green. This adds a nice layer of consistency to the dataset.
+        </p>
+        <p>
+            Next to the images there is a list of the Wikipedia page metadata which includes things like centrality, word count, number of sections, number of images, number of internal links, number of external links, and the number of languages the page has been translated into. A lot of interesting bits of information can be found in this section. One thing I found interesting is that I can’t find a correlation between centrality and any of the other metrics. It would make sense that countries that thought to be more important on the global scale (think United States, Russia, China, etc.), or countries with longer pages or more internal links would have higher centralities. However, this does not seem to be the case. Finding what metrics correlate to higher centrality could potentially be a topic for future study.
+        </p>
+        <p>
+            The next metric listed on the document page is the 10 most common words on each page. This metric is fairly straight forward, but it does lend to some pretty interesting bits of information. The most common word in almost all cases is the country itself. However, there are a few notable exceptions (The United States, for one). The second most common word is more often than not the word used to describe someone from the country in question. This is, as with the last metric, not always the case. The last metric describes the most related countries to a given country. This is really interesting because without knowing any geographical location of the country, most of the time, the most relevant countries are the ones that are geographically close to a given country.
+        </p>
+        <p>
+            Another useful tool used by the wikitext script is the wikihistory script. This allows us to see historical changes to each country’s Wikipedia page and some statistics that change with it. For each country in the corpus, you can find excerpts from the first article change for each year the Wikipedia article has existed. For each year, we can look at the year, metadata, sections, top words and the first paragraph. What I found particularly interesting is that in most cases where the top word is the country name itself, the frequency score increases over time.
+        </p>
+        <p>
+            The cluster page is, in my opinion, the most interesting. I chose to have python categorize each country into seven clusters, theoretically this would be one for each of the continents. This happened to an extent, but there were some notable exceptions. Regardless, the clustering algorithm did manage to do some interesting things. Cluster 0 pretty holistically ended up containing all of central Europe (I should note that this algorithm also, like the relevant countries algorithm described in the document page, does not know any geographical data about any of these countries). Cluster 1 encapsulated most of Africa. Cluster 2 contained northern Europe and most of Asia. Cluster 3 was, interestingly enough, mostly islands. Things like the pacific islands, Caribbean islands, Australia, Great Britain etc. ended up in this cluster. Cluster 4 was Central and South America. Cluster 5, in almost a comedic way, contained every country that has the word “Guinea” in its name. Finally, cluster 6 was almost entirely the middle east. There are some notable exceptions to these clusters, which I find interesting. For example, The United States ended up in the Central and South American cluster, and Great Britain ended up in the Island cluster (while yes, Great Britain is an island, its geographical separation from the other countries in its cluster is enough for me to consider it a notable outlier).
+        </p>
+        
+        
+     
     </div>
-   </div>
+
+    <!-- example of an image box -->
+    <div class="myimg">
+      <img src="map.jpg" style="max-width: 200px;"/>
+      <br>
+    </div>
+
+    <!-- another text box -->
+    <div class="mytext">
+      <p>
+            Lastly, the visualization page contains a graph. This graph plots the number of internal links on the x-axis and the number of language pages on the y-axis. Each dot represents a country and each dot is shaded according to the length of each country’s respective Wikipedia page. The data appears to follow a decently strong, positive, logarithmic correlation. This should make sense intuitively, as there are a finite number of possible y-values (translated languages) that a page can have. What is also interesting is that there also appears to be a decently strong correlation (shape unknown) between the length of the page and both axis values. For the x-axis, this also makes intuitive sense because longer pages are going to have more to talk about, and accordingly, more pages to link to.
+        </p>
+    </div>
+
   </div>
+  </div>
+
+
+
  </body>
 </html>
+
+
+
+
+
+
+
